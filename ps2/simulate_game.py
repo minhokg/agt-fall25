@@ -17,7 +17,6 @@ def simulate_game(
     :param rounds: The number of rounds to simulate.
     :return: A list of player 1 moves, a list of player 2 moves, player 1 payoff, and player 2 payoff.
     """
-
     history1, history2 = [], []
     player1_moves, player2_moves = [], []
     player1_payoff, player2_payoff = (
@@ -25,7 +24,7 @@ def simulate_game(
         0,
     )  # Initialize cumulative payoffs for both players
 
-    for round_num in range(rounds):
+    for _round_num in range(rounds):
         # Determine the moves of both players
         move1 = player1_strategy(history2)
         move2 = player2_strategy(history1)

@@ -1,4 +1,5 @@
 from typing import List
+
 import numpy as np
 
 
@@ -10,7 +11,6 @@ def tit_for_tat(opponent_history: List[str]) -> str:
     :param opponent_history: history of the opponent
     :return: "C" for cooperation, "D" for defect
     """
-
     # cooperate first
     if not opponent_history:
         return "C"
@@ -26,7 +26,6 @@ def grim_trigger(opponent_history: List[str]) -> str:
     :param opponent_history: history of the opponent
     :return: "C" for cooperation, "D" for defect
     """
-
     # defect after any defection
     if "D" in opponent_history:
         return "D"
@@ -37,31 +36,27 @@ def grim_trigger(opponent_history: List[str]) -> str:
 
 def always_cooperate(opponent_history: List[str]) -> str:
     """
-    Always Cooperate.
+    Cooperate.
 
     :param opponent_history: history of the opponent
     :return: "C" for cooperation
     """
-
     # always cooperate
     return "C"
 
 
 def always_defect(opponent_history: List[str]) -> str:
     """
-    Always Defect.
+    Defect.
 
     :param opponent_history: history of the opponent
     :return: "D" for defect
     """
-
     # always defect
     return "D"
 
 
-def probabilistic_strategy(
-    opponent_history: List[str], p: float, seed: int = None
-) -> str:
+def probabilistic_strategy(opponent_history: List[str], p: float, seed: int = None) -> str:
     """
     Cooperate with some probability.
 
@@ -70,7 +65,6 @@ def probabilistic_strategy(
     :param seed: random seed for reproducibility
     :return: "C" for cooperation, "D" for defect
     """
-
     # set the seed for reproducibility
     if seed is not None:
         np.random.seed(seed)
@@ -81,14 +75,12 @@ def probabilistic_strategy(
 
 def intermediate_punishment(opponent_history: List[str], k: int = 3) -> str:
     """
-    Cooperate until the opponent defects. If the opponent defects, don't cooperate
-    for the next 'k' periods. Then return to cooperation
+    Cooperate until the opponent defects. If the opponent defects, don't cooperate for the next 'k' periods. Then return to cooperation.
 
     :param opponent_history: history of the opponent
     :param k: number of periods to cooperate
     :return: "C" for cooperation, "D" for defect
     """
-
     # cooperation initially
     if not opponent_history:
         return "C"

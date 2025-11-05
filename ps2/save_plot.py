@@ -1,6 +1,7 @@
 import os
-import matplotlib.pyplot as plt
 from typing import List
+
+import matplotlib.pyplot as plt
 
 
 # Save and plot results
