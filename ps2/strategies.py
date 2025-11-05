@@ -56,19 +56,17 @@ def always_defect(opponent_history: List[str]) -> str:
     return "D"
 
 
-def probabilistic_strategy(opponent_history: List[str], p: float, seed: int = None) -> str:
+def probabilistic_strategy(
+    opponent_history: List[str],
+    p: float,
+) -> str:
     """
     Cooperate with some probability.
 
     :param opponent_history: history of the opponent
     :param p: probability
-    :param seed: random seed for reproducibility
     :return: "C" for cooperation, "D" for defect
     """
-    # set the seed for reproducibility
-    if seed is not None:
-        np.random.seed(seed)
-
     # cooperate with probability p, otherwise defect
     return "C" if np.random.random() < p else "D"
 
